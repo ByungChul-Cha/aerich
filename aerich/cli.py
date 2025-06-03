@@ -309,6 +309,23 @@ async def inspectdb(ctx: Context, table: list[str]) -> None:
     ret = await command.inspectdb(table)
     click.secho(ret)
 
+@cli.command(help="Show a detailed description of a specific command.")
+@click.argument("command_name", required=True)
+@click.pass_context
+async def describe(ctx: Context, command_name: str) -> None:
+    """Show help text and example usage for a specific command."""
+    command = cli.commands.get(command_name)
+    if command is None:
+        click.secho(f"Error: '{command_name}' is not a valid Aerich command.", fg=Color.red)
+        return
+
+    click.echo(f"Command: {command_name}")
+    click.echo(f"Example: aerich {command_name}\n")
+
+    click.secho("Available Options:\n", fg="yellow")
+    help_text = command.get_help(ctx)
+    click.echo(help_text)
+
 
 def main() -> None:
     cli()
