@@ -356,6 +356,27 @@ async def status(ctx: Context) -> None:
     else:
         click.secho("Status: All migrations are up-to-date\n", fg="green")
 
+@cli.command(help="Display a tree graph of all migrations for the current app.")
+@click.pass_context
+async def graph(ctx: Context) -> None:
+    command = ctx.obj["command"]
+    app = command.app
+    migration_dir = Path(command.location) / app
+
+    if not migration_dir.exists():
+        return click.secho(f"Migration directory '{migration_dir}' does not exist.", fg=Color.red)
+
+    migration_files = sorted(f.name for f in migration_dir.glob("*.py"))
+
+    if not migration_files:
+        return click.secho(f"No migration files found in {migration_dir}.", fg=Color.yellow)
+
+    click.secho(f"Migrations for app '{app}'", fg="cyan")
+    for i, filename in enumerate(migration_files):
+        prefix = "└──" if i == len(migration_files) - 1 else "├──"
+        click.echo(f"{prefix} {filename}")
+
+
 def main() -> None:
     cli()
 
