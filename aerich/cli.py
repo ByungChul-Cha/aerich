@@ -326,6 +326,34 @@ async def describe(ctx: Context, command_name: str) -> None:
     help_text = command.get_help(ctx)
     click.echo(help_text)
 
+@cli.command(help="Show migration status: applied vs unapplied migrations.")
+@click.pass_context
+async def status(ctx: Context) -> None:
+    command = ctx.obj["command"]
+
+    applied_versions = await command.history()
+
+    migration_dir = Path(command.location, command.app)
+    if not migration_dir.exists():
+        return click.secho(f"Migration folder not found: {migration_dir}", fg="red")
+
+    all_files = sorted(f.name for f in migration_dir.glob("*.sql"))
+    all_versions = [f.split("_")[0] for f in all_files if f.endswith(".sql")]
+
+    unapplied = [v for v in all_versions if v not in applied_versions]
+
+    latest_applied = applied_versions[-1] if applied_versions else "(none)"
+    click.secho(f"\nMigration Status", fg="cyan")
+    click.echo(f"Latest applied version: {latest_applied}")
+    click.echo(f"Total migrations: {len(all_versions)}")
+    click.echo(f"Unapplied migrations: {len(unapplied)}")
+
+    if unapplied:
+        for v in unapplied:
+            click.secho(f"  - {v}", fg="yellow")
+        click.secho("Status: Not up-to-date\n", fg="red")
+    else:
+        click.secho("Status: All migrations are up-to-date\n", fg="green")
 
 def main() -> None:
     cli()
