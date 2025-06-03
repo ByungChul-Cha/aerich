@@ -319,11 +319,12 @@ async def describe(ctx: Context, command_name: str) -> None:
         click.secho(f"Error: '{command_name}' is not a valid Aerich command.", fg=Color.red)
         return
 
-    click.echo(f"Command: {command_name}")
+    click.echo(f"\nCommand: {command_name}")
     click.echo(f"Example: aerich {command_name}\n")
 
     click.secho("Available Options:\n", fg="yellow")
-    help_text = command.get_help(ctx)
+    sub_ctx = Context(command, info_name=f"aerich {command_name}")
+    help_text = command.get_help(sub_ctx)
     click.echo(help_text)
 
 @cli.command(help="Show migration status: applied vs unapplied migrations.")
