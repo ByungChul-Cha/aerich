@@ -1,12 +1,33 @@
 # Aerich
 
-[![image](https://img.shields.io/pypi/v/aerich.svg?style=flat)](https://pypi.python.org/pypi/aerich)
-[![image](https://img.shields.io/github/license/tortoise/aerich)](https://github.com/tortoise/aerich)
-[![image](https://github.com/tortoise/aerich/workflows/pypi/badge.svg)](https://github.com/tortoise/aerich/actions?query=workflow:pypi)
-[![image](https://github.com/tortoise/aerich/workflows/ci/badge.svg)](https://github.com/tortoise/aerich/actions?query=workflow:ci)
-![Python Versions](https://img.shields.io/pypi/pyversions/aerich)
+# Aerich CLI 개선 프로젝트
 
-English | [Русский](./README_RU.md)
+## 📌 소개
+
+본 프로젝트는 [Aerich](https://github.com/tortoise/aerich) 마이그레이션 툴의 CLI(Command Line Interface)에 실용적인 기능을 추가하고, 일부 기존 코드의 오타를 수정하여 사용성과 개발 편의성을 향상시키기 위한 목적에서 시작되었습니다.
+
+Aerich는 Tortoise-ORM 기반의 마이그레이션 도구로서, 본 프로젝트는 아래와 같은 기능적 확장을 중심으로 개선 작업을 수행했습니다.
+
+---
+
+## 🎯 목표 (Goal)
+
+- 기존 명령어에 대한 **사용법 및 예시 제공**
+- **데이터베이스와 마이그레이션 간 차이 확인**
+- **마이그레이션 흐름을 시각적으로 표현**
+- **출력 메시지의 정확도 개선 (오타 수정 포함)**
+
+---
+
+## 🚀 추가된 명령어
+
+### `describe`
+
+- 특정 Aerich 명령어에 대한 설명, 예시, 옵션 목록을 표시합니다.
+- 사용 예:
+  ```bash
+  aerich describe migrate
+  ```
 
 ## Introduction
 
@@ -87,7 +108,7 @@ Success create migrate location ./migrations
 Success write config to pyproject.toml
 ```
 
-*Note*: aerich will import the config file when running init-db/migrate/upgrade/heads/history commands, so it is better to keep this file simple and clean.
+_Note_: aerich will import the config file when running init-db/migrate/upgrade/heads/history commands, so it is better to keep this file simple and clean.
 
 ### Init db
 
@@ -291,6 +312,7 @@ Marks the migrations up to the latest one(or back to the target one) as applied,
 aerich upgrade --fake
 aerich --app models upgrade --fake
 ```
+
 - Downgrade
 
 ```bash
@@ -301,11 +323,13 @@ aerich --app models downgrade --fake -v 2
 ### Ignore tables
 
 You can tell aerich to ignore table by setting `managed=False` in the `Meta` class, e.g.:
+
 ```py
 class MyModel(Model):
     class Meta:
         managed = False
 ```
+
 **Note** `managed=False` does not recognized by `tortoise-orm` and `aerich init-db`, it is only for `aerich migrate`.
 
 ## License
