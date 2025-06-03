@@ -1,5 +1,3 @@
-# Aerich
-
 # Aerich CLI 개선 프로젝트
 
 ## 📌 소개
@@ -27,6 +25,22 @@ Aerich는 Tortoise-ORM 기반의 마이그레이션 도구로서, 본 프로젝�
 - 사용 예:
   ```bash
   aerich describe migrate
+  ```
+  
+### `status`
+
+- 현재 DB 상태와 마이그레이션 파일을 비교하여 반영 여부를 출력합니다.
+- 사용 예:
+  ```bash
+  aerich status
+  ```
+  
+### `graph`
+
+- 마이그레이션 파일 간의 의존 관계를 트리 형태로 시각화하여 출력합니다.
+- 사용 예:
+  ```bash
+  aerich graph
   ```
 
 ## Introduction
