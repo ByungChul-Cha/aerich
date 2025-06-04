@@ -86,7 +86,7 @@ wheel==0.45.1
 
 ## 🖥️ How to Install & Run
 
-Download image from Docker Hub
+1.Download image from Docker Hub
 
 ```bash
 docker pull byunchulcha/final_2021040039:v1
@@ -118,19 +118,27 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 ### ⌨️ How to use CLI command
 
-Use CLI command what I make
+**Use CLI command what I make**
+
+Compare the current database status with the latest migration file to output differences
 
 ```bash
 aerich status
 ```
 
+Output descriptions and use examples for specific aerich commands
+
 ```bash
 aerich describe <COMMAND_IN_AERICH>
 ```
 
+Visualize and output dependencies between migration files in tree form
+
 ```bash
 aerich graph
 ```
+
+Initialize the database, roll back all migrations, and delete the table
 
 ```bash
 aerich reset
