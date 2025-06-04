@@ -185,7 +185,7 @@ AERICH/
 │ ├── migrate.py          # 마이그레이션 관련 코드
 │ ├── models.py           # 데이터 모델 정의
 │ ├── utils.py
-│ ├── version.py
+│ └── version.py
 ├── migrations/           # 마이그레이션 파일
 │ └── models/             # 모델 관련 마이그레이션 파일
 ├── tests/                # 테스트 코드 관련 파일일
@@ -196,7 +196,7 @@ AERICH/
 ├── Makefile
 ├── README.md
 ├── poetry.lock
-├── pyproject.toml
+└── pyproject.toml
 ```
 
 **주요 파일들**
