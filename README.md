@@ -120,6 +120,10 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 **Use CLI command what I make**
 
+```bash
+aerich describe <COMMAND_IN_AERICH>
+```
+
 Compare the current database status with the latest migration file to output differences
 
 ```bash
@@ -127,10 +131,6 @@ aerich status
 ```
 
 Output descriptions and use examples for specific aerich commands
-
-```bash
-aerich describe <COMMAND_IN_AERICH>
-```
 
 Visualize and output dependencies between migration files in tree form
 
