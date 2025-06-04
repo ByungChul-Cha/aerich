@@ -8,16 +8,17 @@ Aerich는 Tortoise-ORM 기반의 마이그레이션 도구로서, 본 프로젝�
 
 ---
 
-## 🎯 목표 (Goal)
+## 🎯 Goal
 
 - 기존 명령어에 대한 **사용법 및 예시 제공**
 - **데이터베이스와 마이그레이션 간 차이 확인**
 - **마이그레이션 흐름을 시각적으로 표현**
+- **모든 마이그레이션 초기화**
 - **출력 메시지의 정확도 개선 (오타 수정 포함)**
 
 ---
 
-## 🚀 추가된 명령어
+## 🚀 Added Commands
 
 ### `describe`
 
@@ -43,7 +44,16 @@ Aerich는 Tortoise-ORM 기반의 마이그레이션 도구로서, 본 프로젝�
   aerich graph
   ```
 
-## ✅ 요구사항
+### `reset`
+
+- 데이터베이스를 초기화하여 모든 마이그레이션을 롤백하고, 데이터베이스에서 모든 테이블을 삭제합니다.
+- 주의: 이 작업은 데이터베이스를 완전히 초기화하며 모든 데이터가 삭제됩니다.
+- 사용 예:
+  ```bash
+  aerich reset
+  ```
+
+## ✅ Requirements
 
 ```bash
 aiomysql==0.2.0
@@ -73,3 +83,5 @@ typing-inspection==0.4.1
 typing_extensions==4.14.0
 wheel==0.45.1
 ```
+
+## How to Install & Run
