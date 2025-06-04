@@ -92,7 +92,15 @@ Download image from Docker Hub
 docker pull byunchulcha/final_2021040039:v1
 ```
 
-Find `byungchulcha/final_2021040039:v1` image
+Rename image & Delete original image
+
+```bash
+docker image tag byungchulcha/final_2021040039:v1 final_2021040039:v1
+
+docker rmi byungchulcha/final_2021040039:v1
+```
+
+Find `final_2021040039:v1` image
 
 ```bash
 docker images
@@ -101,7 +109,7 @@ docker images
 Create a container with an image
 
 ```bash
-docker run -dit byungchulcha/final_2021040039:v1
+docker run -dit final_2021040039:v1
 ```
 
 Find container
