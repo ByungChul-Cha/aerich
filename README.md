@@ -168,6 +168,41 @@ aerich reset
 
 ## Directory Structure
 
+```
+AERICH/
+├── .github/              # GitHub 관련 파일
+├── aerich/               # 주요 소스 코드
+│ ├── pycache/            # 파이썬 컴파일된 바이트 코드
+│ ├── ddl/                # 데이터 정의 언어 관련 파일
+│ ├── inspectdb/          # 데이터베이스 검사 관련 모듈
+│ ├── __init__.py         # 초기화 파일
+│ ├── __main__.py
+│ ├── _compat.py          # 호환성 관련 코드
+│ ├── cli.py              # CLI 명령어 정의
+│ ├── coder.py
+│ ├── enums.py            # 열거형 상수 정의
+│ ├── exceptions.py       # 예외 처리 코드
+│ ├── migrate.py          # 마이그레이션 관련 코드
+│ ├── models.py           # 데이터 모델 정의
+│ ├── utils.py
+│ ├── version.py
+├── migrations/           # 마이그레이션 파일
+│ └── models/             # 모델 관련 마이그레이션 파일
+├── tests/                # 테스트 코드 관련 파일일
+├── .gitignore
+├── CHANGELOG.md
+├── conftest.py           # 테스트 설정 관련 코드
+├── LICENSE
+├── Makefile
+├── README.md
+├── poetry.lock
+├── pyproject.toml
+```
+
+**주요 파일들**
+`migrations` - 처음 DB 설정 및 migrate시 변경 내용 자동 저장
+`cli.py` - aerich에서 사용할 명령어들을 정의하는 파일일
+
 ## ⏹️ How to finish and Exit
 
 To exit
