@@ -84,4 +84,87 @@ typing_extensions==4.14.0
 wheel==0.45.1
 ```
 
-## How to Install & Run
+## 🖥️ How to Install & Run
+
+Download image from Docker Hub
+
+```bash
+docker pull byunchulcha/final_2021040039:v1
+```
+
+Find `byungchulcha/final_2021040039:v1` image
+
+```bash
+docker images
+```
+
+Create a container with an image
+
+```bash
+docker run -dit byungchulcha/final_2021040039:v1
+```
+
+Find container
+
+```bash
+docker ps
+```
+
+Access to container
+
+```bash
+docker exec -it <CONTAINER_ID> /bin/bash
+```
+
+### ⌨️ How to use CLI command
+
+Use CLI command what I make
+
+```bash
+aerich status
+```
+
+```bash
+aerich describe <COMMAND_IN_AERICH>
+```
+
+```bash
+aerich graph
+```
+
+```bash
+aerich reset
+```
+
+## Directory Structure
+
+## ⏹️ How to finish and Exit
+
+To exit
+
+```bash
+exit
+```
+
+Stop container
+
+```bash
+docker stop <CONTAINER_ID>
+```
+
+Remove container
+
+```bash
+docker rm <CONTAINER_ID>
+```
+
+Remove image
+
+```bash
+docker rmi byungchulcha/final_2021040039:v1
+```
+
+## ©️ License
+
+This project is licensed under the
+[Apache-2.0](https://github.com/long2ice/aerich/blob/master/LICENSE) License.
