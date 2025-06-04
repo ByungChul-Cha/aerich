@@ -200,8 +200,9 @@ AERICH/
 ```
 
 **주요 파일들**
-`migrations` - 처음 DB 설정 및 migrate시 변경 내용 자동 저장
-`cli.py` - aerich에서 사용할 명령어들을 정의하는 파일일
+
+- `migrations` - 처음 DB 설정 및 migrate시 변경 내용 자동 저장
+- `cli.py` - aerich에서 사용할 명령어들을 정의하는 파일일
 
 ## ⏹️ How to finish and Exit
 
