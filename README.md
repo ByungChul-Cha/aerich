@@ -86,7 +86,7 @@ wheel==0.45.1
 
 ## 🖥️ How to Install & Run
 
-1.Download image from Docker Hub
+Download image from Docker Hub
 
 ```bash
 docker pull byunchulcha/final_2021040039:v1
