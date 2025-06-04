@@ -191,7 +191,7 @@ docker rm <CONTAINER_ID>
 Remove image
 
 ```bash
-docker rmi byungchulcha/final_2021040039:v1
+docker rmi final_2021040039:v1
 ```
 
 ## ©️ License
