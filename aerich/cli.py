@@ -376,6 +376,36 @@ async def graph(ctx: Context) -> None:
         prefix = "└──" if i == len(migration_files) - 1 else "├──"
         click.echo(f"{prefix} {filename}")
 
+@cli.command(help="Reset the database by rolling back all migrations and dropping all tables.")
+@click.option('-y', '--yes', is_flag=True, help="Skip confirmation and reset the database immediately.")
+@click.pass_context
+async def reset(ctx: Context, yes: bool) -> None:
+    
+    if not yes:
+        click.secho("Warning: This operation will rollback all migrations and delete all data from the database.", fg="red")
+        click.secho("Are you sure you want to proceed? (y/N)", fg="yellow")
+
+        confirmation = input().strip().lower()
+        
+        if confirmation == 'y':
+            yes = True
+        elif confirmation == 'n':
+            click.secho("Database reset operation cancelled.", fg="yellow")
+            return
+        else:
+            click.secho("Invalid input. Database reset operation cancelled.", fg="yellow")
+            return
+
+    if yes:
+        command = ctx.obj["command"]
+        
+        try:
+            await command.downgrade(version=-1, delete=True, fake=True)
+            click.secho("Database reset successfully. All migrations have been rolled back.", fg="green")
+        except Exception as e:
+            click.secho(f"Failed to reset the database: {e}", fg="red")
+
+
 
 def main() -> None:
     cli()
