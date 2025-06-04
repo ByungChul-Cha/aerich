@@ -383,7 +383,7 @@ async def reset(ctx: Context, yes: bool) -> None:
     
     if not yes:
         click.secho("Warning: This operation will rollback all migrations and delete all data from the database.", fg="red")
-        click.secho("Are you sure you want to proceed? (y/N)", fg="yellow")
+        click.secho("Are you sure you want to proceed? (Y/N)", fg="yellow")
 
         confirmation = input().strip().lower()
         

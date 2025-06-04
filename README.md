@@ -118,7 +118,23 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 ### ⌨️ How to use CLI command
 
+**First initialize aerich**
+
+```bash
+aerich init-db
+```
+
+To use CLI command what I make
+
+```bash
+pip install -e .
+```
+
 **Use CLI command what I make**
+
+Output descriptions and use examples for specific aerich commands
+
+- To search `aerich_command` type `aerich -h`
 
 ```bash
 aerich describe <COMMAND_IN_AERICH>
@@ -129,8 +145,6 @@ Compare the current database status with the latest migration file to output dif
 ```bash
 aerich status
 ```
-
-Output descriptions and use examples for specific aerich commands
 
 Visualize and output dependencies between migration files in tree form
 
