@@ -93,7 +93,7 @@ wheel==0.45.1
 Load image from tar file
 
 ```bash
-docker load < final_2021040039:v1.tar
+docker load -i final_2021040039.v1.tar
 ```
 
 Find `final_2021040039:v1` image
