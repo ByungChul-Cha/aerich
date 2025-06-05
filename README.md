@@ -86,18 +86,10 @@ wheel==0.45.1
 
 ## 🖥️ How to Install & Run
 
-Download image from Docker Hub
+Load image from tar file
 
 ```bash
-docker pull byunchulcha/final_2021040039:v1
-```
-
-Rename image & Delete original image
-
-```bash
-docker image tag byungchulcha/final_2021040039:v1 final_2021040039:v1
-
-docker rmi byungchulcha/final_2021040039:v1
+docker load < final_2021040039:v1.tar
 ```
 
 Find `final_2021040039:v1` image
