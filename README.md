@@ -53,6 +53,8 @@ Aerich는 Tortoise-ORM 기반의 마이그레이션 도구로서, 본 프로젝�
   aerich reset
   ```
 
+---
+
 ## ✅ Requirements
 
 ```bash
@@ -83,6 +85,8 @@ typing-inspection==0.4.1
 typing_extensions==4.14.0
 wheel==0.45.1
 ```
+
+---
 
 ## 🖥️ How to Install & Run
 
@@ -158,6 +162,8 @@ Initialize the database, roll back all migrations, and delete the table
 aerich reset
 ```
 
+---
+
 ## 📌Directory Structure
 
 ```
@@ -180,7 +186,7 @@ AERICH/
 │ └── version.py
 ├── migrations/           # 마이그레이션 파일
 │ └── models/             # 모델 관련 마이그레이션 파일
-├── tests/                # 테스트 코드 관련 파일일
+├── tests/                # 테스트 코드 관련 파일
 ├── .gitignore
 ├── CHANGELOG.md
 ├── conftest.py           # 테스트 설정 관련 코드
@@ -194,7 +200,9 @@ AERICH/
 **주요 파일들**
 
 - `migrations` - 처음 DB 설정 및 migrate시 변경 내용 자동 저장
-- `cli.py` - aerich에서 사용할 명령어들을 정의하는 파일일
+- `cli.py` - aerich에서 사용할 명령어들을 정의하는 파일
+
+---
 
 ## 🛑 How to finish and Exit
 
@@ -221,6 +229,8 @@ Remove image
 ```bash
 docker rmi final_2021040039:v1
 ```
+
+---
 
 ## ©️ License
 
